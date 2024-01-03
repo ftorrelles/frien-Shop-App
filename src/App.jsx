@@ -9,6 +9,7 @@ import Container from "react-bootstrap/Container";
 import Loader from "./components/Loader";
 import { useSelector } from "react-redux";
 import ProtectedRoutes from "./components/ProtectedRoutes";
+import Footer from "./components/footer";
 
 function App() {
     const isLoading = useSelector((state) => state.isLoading);
@@ -30,6 +31,7 @@ function App() {
                         </Route>
                     </Routes>
                 </Container>
+                <Footer />
             </div>
         </HashRouter>
     );
