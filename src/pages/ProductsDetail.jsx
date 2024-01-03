@@ -36,6 +36,7 @@ const ProductsDetail = () => {
             navigate("/login");
         }
     };
+    // console.log(detail);
     return (
         <div>
             <Row xs={1} md={2} lg={2}>
@@ -56,7 +57,7 @@ const ProductsDetail = () => {
                                         objectFit: "contain",
                                     }}
                                     // className="carousel_img"
-                                    src={detail?.productImgs?.[0]?.url}
+                                    src={detail?.images?.[0]?.url}
                                     alt="First slide"
                                 />
                             </Carousel.Item>
@@ -75,7 +76,7 @@ const ProductsDetail = () => {
                                         objectFit: "contain",
                                     }}
                                     // className="carousel_img"
-                                    src={detail?.productImgs?.[1]?.url}
+                                    src={detail?.images?.[1]?.url}
                                     alt="Second slide"
                                 />
                             </Carousel.Item>
@@ -93,7 +94,7 @@ const ProductsDetail = () => {
                                         objectFit: "contain",
                                     }}
                                     // className="carousel_img"
-                                    src={detail?.productImgs?.[2]?.url}
+                                    src={detail?.images?.[2]?.url}
                                     alt="Third slide"
                                 />
                             </Carousel.Item>
@@ -113,6 +114,7 @@ const ProductsDetail = () => {
                             <Card.Title>
                                 <h3>{detail?.title}</h3>
                             </Card.Title>
+                            <Card.Text>{detail?.brand}</Card.Text>
                             <Card.Text>{detail?.description}</Card.Text>
                             <ListGroup className="list-group-flush">
                                 <ListGroup.Item
@@ -204,7 +206,7 @@ const ProductsDetail = () => {
                                             objectFit: "contain",
                                         }}
                                         // className="carousel_img"
-                                        src={producItem?.productImgs?.[0]?.url}
+                                        src={producItem?.images?.[0]?.url}
                                         alt="First slide"
                                     />
                                 </Carousel.Item>
@@ -223,7 +225,7 @@ const ProductsDetail = () => {
                                             objectFit: "contain",
                                         }}
                                         // className="carousel_img"
-                                        src={producItem?.productImgs?.[1]?.url}
+                                        src={producItem?.images?.[1]?.url}
                                         alt="Second slide"
                                     />
                                 </Carousel.Item>
@@ -241,7 +243,7 @@ const ProductsDetail = () => {
                                             objectFit: "contain",
                                         }}
                                         // className="carousel_img"
-                                        src={producItem?.productImgs?.[2]?.url}
+                                        src={producItem?.images?.[2]?.url}
                                         alt="Third slide"
                                     />
                                 </Carousel.Item>

@@ -32,7 +32,7 @@ const SideBar = ({ show, handleClose }) => {
     //mandar a purchases
     const checkoutCart = async () => {
         await axios.post(
-            "https://friend-shop-app-back.onrender.com/api/v1/purchases",
+            "https://e-commerce-api-v2.academlo.tech/api/v1/purchases",
             {
                 street: "Green St. 1456",
                 colony: "Southwest",
@@ -45,7 +45,7 @@ const SideBar = ({ show, handleClose }) => {
         for await (let i of productsCart) {
             axios
                 .delete(
-                    "https://friend-shop-app-back.onrender.com/api/v1/carts/" +
+                    "https://e-commerce-api-v2.academlo.tech/api/v1/cart/" +
                         i?.id,
                     getConfig()
                 )
@@ -72,6 +72,7 @@ const SideBar = ({ show, handleClose }) => {
     const removeCart = (data) => {
         dispatch(removeCartThunk(data?.id));
     };
+    // console.log(productsCart);
     return (
         <Offcanvas show={show} onHide={handleClose} placement={"end"}>
             <Offcanvas.Header closeButton>
@@ -84,14 +85,33 @@ const SideBar = ({ show, handleClose }) => {
                             <Card.Body>
                                 <Card.Title>
                                     <h6>{item.product?.title}</h6>
+                                    <p>{item.product?.brand}</p>
                                 </Card.Title>
-                                <Card.Text>
-                                    <span>
-                                        {/* Brand: {item.brand} <br /> */}
-                                        Quantity: {item?.quantity} <br />
-                                        Price: {item.product?.price}
-                                    </span>
-                                </Card.Text>
+                                <div
+                                    style={{
+                                        display: "flex",
+                                        gap: "1rem",
+                                        margin: "2rem 0",
+                                    }}
+                                >
+                                    <img
+                                        style={{ width: "30%" }}
+                                        src={item?.product?.images[0].url}
+                                        alt=""
+                                    />
+                                    <Card.Text>
+                                        <span>
+                                            {/* Brand: {item.brand} <br /> */}
+                                            Quantity: {item?.quantity} <br />
+                                            Price:{" "}
+                                            {(
+                                                item.product?.price *
+                                                item?.quantity
+                                            ).toFixed(2)}
+                                        </span>
+                                    </Card.Text>
+                                </div>
+
                                 <div
                                     style={{
                                         display: "flex",

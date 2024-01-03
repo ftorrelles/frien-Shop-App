@@ -23,7 +23,7 @@ const Login = () => {
         axios
 
             .post(
-                "https://friend-shop-app-back.onrender.com/api/v1/users/login",
+                "https://e-commerce-api-v2.academlo.tech/api/v1/users/login",
                 data
             )
             .then((resp) => {
@@ -66,10 +66,7 @@ const Login = () => {
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>
                                 Email address
-                                <strong>
-                                    {" "}
-                                    test data: 'torrellesf2@gmail.com'
-                                </strong>
+                                <strong> test data: 'john@gmail.com'</strong>
                             </Form.Label>
                             <Form.Control
                                 type="email"
@@ -84,8 +81,7 @@ const Login = () => {
                             controlId="formBasicPassword"
                         >
                             <Form.Label>
-                                Password{" "}
-                                <strong> test data: ''cisco1234''</strong>
+                                Password <strong> test data: 'john1234'</strong>
                             </Form.Label>
                             <Form.Control
                                 type="password"

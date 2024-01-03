@@ -16,13 +16,22 @@ const Purchases = () => {
     useEffect(() => {
         axios
             .get(
-                "https://friend-shop-app-back.onrender.com/api/v1/purchases",
+                "https://e-commerce-api-v2.academlo.tech/api/v1/purchases",
                 getConfig()
             )
-            .then((resp) => setPurchases(resp.data))
+            .then((resp) =>
+                setPurchases(
+                    resp.data.sort((a, b) => {
+                        const dateA = new Date(a.createdAt);
+                        const dateB = new Date(b.createdAt);
+                        return dateB - dateA;
+                    })
+                )
+            )
             .catch((error) => console.error(error));
     }, []);
     const [dataSelected, setDataSelected] = useState({});
+    // console.log(purchases);
     return (
         <div>
             <h2>My purchases</h2>
@@ -30,7 +39,7 @@ const Purchases = () => {
             {purchases.map((purchase) => (
                 <Card key={purchase.id} style={{ margin: "1rem" }}>
                     <Card.Header>
-                        {purchase.product?.createdAt.slice(0, 10)}
+                        {purchase?.createdAt.slice(0, 10)}
                     </Card.Header>
                     <Card.Body
                         style={{
@@ -38,6 +47,11 @@ const Purchases = () => {
                             justifyContent: "space-around",
                         }}
                     >
+                        <img
+                            style={{ width: "2rem" }}
+                            src={purchase.product?.images[0].url}
+                            alt=""
+                        />
                         <Card.Text>{purchase.product?.title}</Card.Text>
                         <Card.Text
                             style={{
@@ -51,7 +65,11 @@ const Purchases = () => {
                         >
                             {purchase?.quantity}
                         </Card.Text>
-                        <Card.Text>{purchase.product?.price}</Card.Text>
+                        <Card.Text>
+                            {(
+                                purchase?.product?.price * purchase?.quantity
+                            ).toFixed(2)}
+                        </Card.Text>
                         <Button
                             variant="primary"
                             onClick={() => handleShow(purchase)}

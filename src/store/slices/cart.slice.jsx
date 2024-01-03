@@ -16,10 +16,7 @@ export const cartSlice = createSlice({
 export const getCarThunk = () => (dispatch) => {
     dispatch(setIsLoading(true));
     axios
-        .get(
-            "https://friend-shop-app-back.onrender.com/api/v1/carts",
-            getConfig()
-        )
+        .get("https://e-commerce-api-v2.academlo.tech/api/v1/cart", getConfig())
         .then((resp) => {
             dispatch(setCart(resp.data));
         })
@@ -31,7 +28,7 @@ export const addCartThunk = (product, quantity) => (dispatch) => {
     dispatch(setIsLoading(true));
     axios
         .post(
-            "https://friend-shop-app-back.onrender.com/api/v1/carts",
+            "https://e-commerce-api-v2.academlo.tech/api/v1/cart",
             { productId: product.id, quantity },
             getConfig()
         )
@@ -43,7 +40,7 @@ export const updateCartThunk = (quantity, product, id) => (dispatch) => {
     dispatch(setIsLoading(true));
     axios
         .put(
-            "https://friend-shop-app-back.onrender.com/api/v1/carts/" + id,
+            "https://e-commerce-api-v2.academlo.tech/api/v1/cart/" + id,
             { quantity, productId: product.productId },
             getConfig()
         )
@@ -56,7 +53,7 @@ export const removeCartThunk = (id) => (dispatch) => {
     dispatch(setIsLoading(true));
     axios
         .delete(
-            "https://friend-shop-app-back.onrender.com/api/v1/carts/" + id,
+            "https://e-commerce-api-v2.academlo.tech/api/v1/cart/" + id,
             getConfig()
         )
         .then((res) => dispatch(getCarThunk()))

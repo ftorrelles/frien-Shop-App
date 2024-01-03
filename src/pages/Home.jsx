@@ -23,7 +23,7 @@ const Home = () => {
     useEffect(() => {
         dispatch(getProductsThunk());
         axios
-            .get("https://friend-shop-app-back.onrender.com/api/v1/categories")
+            .get("https://e-commerce-api-v2.academlo.tech/api/v1/categories")
             .then((resp) => setCategories(resp.data))
             .catch((error) => console.error(error));
     }, []);
@@ -121,7 +121,7 @@ const Home = () => {
                                             objectFit: "contain",
                                         }}
                                         // className="carousel_img"
-                                        src={producItem?.productImgs?.[0]?.url}
+                                        src={producItem?.images?.[0]?.url}
                                         alt="First slide"
                                     />
                                 </Carousel.Item>
@@ -140,7 +140,7 @@ const Home = () => {
                                             objectFit: "contain",
                                         }}
                                         // className="carousel_img"
-                                        src={producItem?.productImgs?.[1]?.url}
+                                        src={producItem?.images?.[1]?.url}
                                         alt="Second slide"
                                     />
                                 </Carousel.Item>
@@ -158,7 +158,7 @@ const Home = () => {
                                             objectFit: "contain",
                                         }}
                                         // className="carousel_img"
-                                        src={producItem?.productImgs?.[2]?.url}
+                                        src={producItem?.images?.[2]?.url}
                                         alt="Third slide"
                                     />
                                 </Carousel.Item>
