@@ -71,6 +71,12 @@ const Purchases = () => {
                             ).toFixed(2)}
                         </Card.Text>
                         <Button
+                            style={{
+                                height: "2rem",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                            }}
                             variant="primary"
                             onClick={() => handleShow(purchase)}
                         >

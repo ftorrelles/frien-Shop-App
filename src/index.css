@@ -118,6 +118,33 @@ a {
     margin-bottom: 1rem;
 }
 
+/* home */
+.card__body {
+    background-color: rgba(255, 68, 0, 0.062);
+}
+.btAdd_card {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin-top: -1.5rem;
+    margin-right: -15rem;
+}
+.btdetails_card {
+    position: absolute;
+    margin-top: -1.5rem;
+    margin-left: -13rem;
+}
+.info_card {
+    margin-top: 1rem;
+}
+.bxs-cart-add {
+    font-size: 1.5rem;
+}
+
 /* ----------footer------------- */
 
 .div_icons_contact {

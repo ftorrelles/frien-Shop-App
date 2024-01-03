@@ -8,7 +8,7 @@ import { getProductsThunk } from "../store/slices/products.slice";
 //bootstrap
 import { Button, Col, Row, Card, ListGroup } from "react-bootstrap";
 import Carousel from "react-bootstrap/Carousel";
-import { Cart } from "react-bootstrap-icons";
+// import { Cart } from "react-bootstrap-icons";
 
 const ProductsDetail = () => {
     const { id } = useParams();
@@ -132,7 +132,7 @@ const ProductsDetail = () => {
                                     </div>
                                     <div>
                                         <i className="bx bx-car"></i>
-                                        <spam> Envio gratis</spam>
+                                        <spam> Free shipping</spam>
                                     </div>
                                 </ListGroup.Item>
                                 <ListGroup.Item
@@ -258,7 +258,6 @@ const ProductsDetail = () => {
                                     }}
                                 >
                                     <Button
-                                        variant="light"
                                         as={Link}
                                         to={`/products/${producItem.id}`}
                                     >
@@ -271,7 +270,8 @@ const ProductsDetail = () => {
                                         }}
                                         variant="primary"
                                     >
-                                        <Cart />
+                                        <i className="bx bxs-cart-add"></i>
+                                        {/* <Cart /> */}
                                     </Button>
                                 </div>
                             </Card.Body>
