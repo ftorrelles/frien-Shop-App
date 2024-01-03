@@ -128,7 +128,7 @@ const ProductsDetail = () => {
                                         <p>
                                             <strong>Price</strong>
                                         </p>
-                                        {detail?.price}
+                                        $ {(detail?.price * count).toFixed(2)}
                                     </div>
                                     <div>
                                         <i className="bx bx-car"></i>

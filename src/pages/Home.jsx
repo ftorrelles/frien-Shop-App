@@ -155,7 +155,10 @@ const Home = () => {
                                         <p>
                                             <strong>Price</strong>
                                         </p>
-                                        {products[14]?.price}
+                                        ${" "}
+                                        {(products[14]?.price * count).toFixed(
+                                            2
+                                        )}
                                     </div>
                                     <div>
                                         <i className="bx bx-car"></i>
